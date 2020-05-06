@@ -27,7 +27,7 @@ class StatServiceTest {
     @Test
     void findMaxindex() {
         StatService statService = new StatService();
-        int expected = 5;
+        int expected = 6;
         int actual = statService.findMaxindex(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
         assertEquals(expected, actual);
     }
@@ -35,24 +35,24 @@ class StatServiceTest {
     @Test
     void findMinindex() {
         StatService statService = new StatService();
-        int expected = 0;
+        int expected = 9;
         int actual = statService.findMinindex(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
         assertEquals(expected, actual);
     }
 
     @Test
-    void findIndexLowAverage() {
+    void findQuantityHighSales() {
         StatService statService = new StatService();
-        int expected = 0;
-        int actual = statService.findIndexLowAverage(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
+        int expected = 5;
+        int actual = statService.findQuantityHighSales(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
         assertEquals(expected, actual);
     }
 
     @Test
-    void findIndexHighAverage() {
+    void findQuantityLowSales() {
         StatService statService = new StatService();
-        int expected = 11;
-        int actual = statService.findIndexHighAverage(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
+        int expected = 5;
+        int actual = statService.findQuantityLowSales(new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18});
         assertEquals(expected, actual);
     }
 }

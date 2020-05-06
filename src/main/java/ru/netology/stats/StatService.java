@@ -1,6 +1,7 @@
 package ru.netology.stats;
 
 public class StatService {
+
     public int totalSum(int[] volumeOfSales) {
         int sum = 0;
         for (int volumeOfSale : volumeOfSales)
@@ -8,76 +9,51 @@ public class StatService {
         return sum;
     }
 
-    public int findMax(int[] volumeofSales) {
-        int currentMax = volumeofSales[0];
-        for (int num : volumeofSales) {
-            if (num > currentMax) {
-                currentMax = num;
-            }
-        }
-        return currentMax;
+
+    public int findAverageSum(int[] volumeOfSales) {
+        int sum = totalSum(volumeOfSales);
+        return sum / volumeOfSales.length;
     }
 
-    public int findMin(int[] volumeofSales) {
-        int currentMin = volumeofSales[0];
-        for (int num : volumeofSales) {
-            if (num <= currentMin) {
-                currentMin = num;
-            }
-        }
-        return currentMin;
-    }
-
-    public int findAverageSum(int[] volumeofSales) {
-        int average = 0;
-        int sum = 0;
-        for (int volumeOfSale : volumeofSales)
-            sum = sum + volumeOfSale;
-        average = sum / volumeofSales.length;
-        return average;
-    }
-
-    public int findMaxindex(int[] volumeofSales) {
+    public int findMaxindex(int[] volumeOfSales) {
         int indexOfMax = 0;
-        for (int i = 1; i < volumeofSales.length; i++)
-            if (volumeofSales[i] > volumeofSales[indexOfMax])
+        for (int i = 1; i < volumeOfSales.length; i++)
+            if (volumeOfSales[i] > volumeOfSales[indexOfMax])
                 indexOfMax = i;
-        return indexOfMax;
+        return indexOfMax + 1;
     }
 
-    public int findMinindex(int[] volumeofSales) {
+    public int findMinindex(int[] volumeOfSales) {
         int indexOfMin = 0;
-        for (int i = 1; i > volumeofSales.length; i++)
-            if (volumeofSales[i] < volumeofSales[indexOfMin])
+        for (int i = 1; i > volumeOfSales.length; i++)
+            if (volumeOfSales[i] < volumeOfSales[indexOfMin])
                 indexOfMin = i;
-        return indexOfMin;
+        return indexOfMin + 1;
     }
 
-    public int findIndexLowAverage(int[] volumeofSales) {
-        int average = 0;
-        int sum = 0;
-        for (int volumeOfSale : volumeofSales)
-            sum = sum + volumeOfSale;
-        average = sum / volumeofSales.length;
-        int indexOfLowAverage = 0;
-        for (int i : volumeofSales)
-            if (i < average)
-                i = indexOfLowAverage;
-            return indexOfLowAverage;
-        }
-    public int findIndexHighAverage(int[] volumeofSales) {
-        int average = 0;
-        int sum = 0;
-        for (int volumeOfSale : volumeofSales)
-            sum = sum + volumeOfSale;
-        average = sum / volumeofSales.length;
+    public int findQuantityHighSales(int[] volumeOfSales) {
+        int average = findAverageSum(volumeOfSales);
         int indexOfHighAverage = 0;
-           for (int i=0; i<volumeofSales.length;i++)
-            if (volumeofSales [i] > average)
-                indexOfHighAverage = i;
-            return indexOfHighAverage;
+        for (int i = 0; i < volumeOfSales.length; i++)
+            if (volumeOfSales[i] > average)
+                indexOfHighAverage++;
+        return indexOfHighAverage;
     }
-            }
+
+    public int findQuantityLowSales(int[] volumeOfSales) {
+        int average = findAverageSum(volumeOfSales);
+        int indexOfLowAverage = 0;
+        for (int i = 0; i < volumeOfSales.length; i++)
+            if (volumeOfSales[i] < average)
+                indexOfLowAverage++;
+        return indexOfLowAverage;
+    }
+}
+
+
+
+
+
 
 
 
