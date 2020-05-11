@@ -25,7 +25,7 @@ public class StatService {
 
     public int findMinindex(int[] volumeOfSales) {
         int indexOfMin = 0;
-        for (int i = 1; i > volumeOfSales.length; i++)
+        for (int i = 1; i < volumeOfSales.length; i++)
             if (volumeOfSales[i] < volumeOfSales[indexOfMin])
                 indexOfMin = i;
         return indexOfMin + 1;
